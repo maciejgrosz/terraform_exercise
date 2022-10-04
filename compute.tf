@@ -13,3 +13,7 @@ resource "aws_instance" "maciejgroszyk_tf_ec2" {
         bootcamp = "poland1"
     }
 }
+
+resource "aws_key_pair" "london-region-key-pair" {
+    key_name = "londonmaciejgroszyk"
+}
