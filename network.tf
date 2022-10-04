@@ -9,7 +9,7 @@ resource "aws_route_table" "maciejgroszyk_tf_crt" {
     vpc_id = "${aws_vpc.maciejgroszyk_tf_vpc.id}"
     route {
 	cidr_block = "0.0.0.0/0"
-  	gateway_id = "{aws_internet_gateway.maciejgroszyk_tf_igw.id}"
+  	gateway_id = "${aws_internet_gateway.maciejgroszyk_tf_igw.id}"
     }
     tags = {
 	Name = "maciejgroszyk_tf_crt"
