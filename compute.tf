@@ -7,4 +7,9 @@ resource "aws_instance" "maciejgroszyk_tf_ec2" {
         created_by = "Maciej Groszyk"
         bootcamp = "poland1"
     }
+
+    volume_tags = {
+        created_by = "Maciej Groszyk"
+        bootcamp = "poland1"
+    }
 }
