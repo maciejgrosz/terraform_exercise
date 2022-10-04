@@ -17,7 +17,7 @@ resource "aws_route_table" "maciejgroszyk_tf_crt" {
 }
 
 resource "aws_route_table_association" "mg_crta_public_subnet-1" {
-    subnet_id = "${aws_subnet.mg-subnet-public-1.id}"
+    subnet_id = "${aws_subnet.maciejgroszyk_tf-public-subnet-1.id}"
     route_table_id = "${aws_route_table.maciejgroszyk_tf_crt.id}"
 }
 
