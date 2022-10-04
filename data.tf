@@ -1,5 +1,5 @@
-data "aws_subnet" "mg-subnet-public-1" {
+data "aws_subnet" "maciejgroszyk_tf_subnet" {
     tags = {
-        Name = "mg-subnet-public-1"
+        Name = "maciejgroszyk_tf_subnet"
     }
 }
