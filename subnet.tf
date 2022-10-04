@@ -3,7 +3,7 @@ resource "aws_subnet" "mg-subnet-public-1" {
     cidr_block = "10.0.1.0/24"
     map_public_ip_on_launch = "true"
     availability_zone = "eu-west-2a"
-    tags {
+    tags = {
         Name = "mg-subnet-public-1"
     }
 }

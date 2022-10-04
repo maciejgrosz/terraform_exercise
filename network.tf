@@ -1,5 +1,5 @@
 resource "aws_internet_gateway" "maciejgroszyk_tf_igw" {
-    vpc_id = "${maciejgroszyk_tf_vpc.id}"
+    vpc_id = "${aws_vpc.maciejgroszyk_tf_vpc.id}"
     tags {
 	Name = "maciejgroszyk_tf_igw"
     }
@@ -22,7 +22,7 @@ resource "aws_route_table_association" "mg_crta_public_subnet-1" {
 }
 
 resource "aws_security_group" "mg_security_group_tf" {
-    vpc_id = "${aws_vpc.prod-vpc.id}"
+    vpc_id = "${aws_vpc.maciejgroszyk_tf_vpc.id}"
 
     egress {
         from_port = 0
@@ -42,7 +42,7 @@ resource "aws_security_group" "mg_security_group_tf" {
         protocol = "tcp"
         cidr_blocks = ["0.0.0.0/0"]
     }
-    tags {
+    tags = {
         Name = "mg_security_group_tf"
     }
 }

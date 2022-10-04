@@ -4,8 +4,7 @@ resource "aws_vpc" "maciejgroszyk_tf_vpc" {
     enable_dns_hostnames = "true"
     enable_classiclink = "false"
     instance_tenancy = "default" 
-    
-    tags {
+    tags = {
         Name = "maciejgroszyk_tf_vpc"
     }
 }
