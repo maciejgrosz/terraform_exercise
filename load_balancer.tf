@@ -7,8 +7,8 @@ module "alb" {
   load_balancer_type = "application"
 
   vpc_id             = "${aws_vpc.maciejgroszyk_tf_vpc.id}"
-  subnets            = ["maciejgroszyk_tf-public-subnet-1", "maciejgroszyk_tf-public-subnet-2"]
-  security_groups    = ["mg_security_group_tf"]
+  subnets            = ["${aws_subnet.maciejgroszyk_tf-public-subnet-1.id}", "${aws_subnet.maciejgroszyk_tf-public-subnet-2.id}"]
+  security_groups    = ["${aws_security_group.mg_security_group_tf.id}"]
 
 #   access_logs = {
 #     bucket = "my-alb-logs"
