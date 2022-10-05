@@ -61,13 +61,6 @@ variable "subnets" {
   }))
 }
 
-variable "backend" {
-    type = map(object({
-        bucket = "mg-state"
-        key = "mg-state"
-        region = "eu-west-2"
-    }))
-}
 # variable "alb" {
 #     type = map
 
