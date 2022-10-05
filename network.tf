@@ -15,14 +15,14 @@ resource "aws_route_table" "maciejgroszyk_tf_crt" {
 }
 
 resource "aws_route_table_association" "mg_crta_public_subnet" {
-  for_each = var.subnets
+  for_each       = var.subnets
   subnet_id      = aws_subnet.subnets[each.key].id
   route_table_id = aws_route_table.maciejgroszyk_tf_crt.id
 }
 
 resource "aws_security_group" "mg_security_group_tf" {
   vpc_id = aws_vpc.maciejgroszyk_tf_vpc.id
-  tags = var.security_group_tag
+  tags   = var.security_group_tag
 }
 
 resource "aws_security_group_rule" "ingress_rules" {

@@ -1,6 +1,6 @@
 locals {
-    subnets_ids =["${aws_subnet.subnets["a"].id}", "${aws_subnet.subnets["b"].id}"]
-    security_group_ids = ["${aws_security_group.mg_security_group_tf.id}"]
+  subnets_ids        = ["${aws_subnet.subnets["a"].id}", "${aws_subnet.subnets["b"].id}"]
+  security_group_ids = ["${aws_security_group.mg_security_group_tf.id}"]
 }
 
 variable "AWS_REGION" {
@@ -47,12 +47,12 @@ variable "egress_rules" {
   default = ["0"]
 }
 variable "rules" {
-    type = any
-#   type = map(list(object({
-#     from_port = number,
-#     to_port   = number,
-#     protocol  = string,
-#   })))
+  type = any
+  #   type = map(list(object({
+  #     from_port = number,
+  #     to_port   = number,
+  #     protocol  = string,
+  #   })))
   default = {
     "22"   = [22, 22, "tcp"]
     "80"   = [80, 80, "tcp"]
@@ -62,10 +62,10 @@ variable "rules" {
 }
 
 variable "security_group_tag" {
-    type = map(any)
-    default = {
-        Name = "mg_security_group_tf"
-    }
+  type = map(any)
+  default = {
+    Name = "mg_security_group_tf"
+  }
 }
 
 variable "aws_instances" {
