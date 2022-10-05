@@ -10,15 +10,15 @@ variable "volume_tags" {
   }
 }
 
-# variable "aws_instances" {
-#     type = map(object({
-#         ami           = string
-#         instance_type = string
-#         tags          = map
-#         key_name      = string
-#     }))
-#  description = "AWS instances"
-# }
+variable "aws_instances" {
+  type = map(object({
+    ami           = string
+    instance_type = string
+    tags          = map
+    key_name      = string
+  }))
+  description = "AWS instances"
+}
 
 # variable "subnets" {
 #   type = map(object({
