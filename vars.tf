@@ -10,6 +10,21 @@ variable "volume_tags" {
   }
 }
 
+variable "route_table" {
+    type = map(any)
+    default = {
+        Name = "maciejgroszyk_tf_crt"
+        cidr = "0.0.0.0/0"
+    }
+}
+
+variable "internet_gateway_tags" {
+    type = map(any)
+    default = {
+        Name = "maciejgroszyk_tf_igw"
+    }
+}
+
 variable "aws_instances" {
   type = map(object({
     ami           = string
@@ -40,3 +55,4 @@ variable "subnets" {
 #         load_balancer_type = "application"
 #     }
 # }
+

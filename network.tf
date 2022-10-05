@@ -1,18 +1,16 @@
 resource "aws_internet_gateway" "maciejgroszyk_tf_igw" {
   vpc_id = aws_vpc.maciejgroszyk_tf_vpc.id
-  tags = {
-    Name = "maciejgroszyk_tf_igw"
-  }
+  tags = var.internet_gateway_tags
 }
 
 resource "aws_route_table" "maciejgroszyk_tf_crt" {
   vpc_id = aws_vpc.maciejgroszyk_tf_vpc.id
   route {
-    cidr_block = "0.0.0.0/0"
+    cidr_block = var.route_table["cidr"]
     gateway_id = aws_internet_gateway.maciejgroszyk_tf_igw.id
   }
   tags = {
-    Name = "maciejgroszyk_tf_crt"
+    Name = "${var.route_table["Name"]}"
   }
 }
 
