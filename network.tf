@@ -52,6 +52,6 @@ resource "aws_security_group" "mg_security_group_tf" {
     cidr_blocks = [var.security_group["ip_0 "]]
   }
   tags = {
-   Name = var.security_group["name"]
+   Name = var.security_group["tag_name"]
   }
 }
