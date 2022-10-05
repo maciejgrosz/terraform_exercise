@@ -63,30 +63,6 @@ variable "security_group_tag" {
     }
 }
 
-# variable "security_group" {
-#     type = object({
-#         ip_0 = string
-#         protocol_tcp = string
-#         ingress_port1 = number
-#         ingress_port2 = number
-#         ingress_port3 = number
-#         egress_port1 = number
-#         egress_protocol = number
-#         tag_name = string
-#     })
-#     default = {
-#         ip_0 = "0.0.0.0/0"
-#         protocol_tcp = "tcp" 
-#         ingress_port1 = 22
-#         ingress_port2 = 80
-#         ingress_port3 = 8080
-#         egress_port1 = 0
-#         egress_protocol = -1
-#         tag_name = "mg_security_group_tf"
-
-#     }
-# }   
-
 variable "aws_instances" {
   type = map(object({
     ami           = string
