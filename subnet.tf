@@ -4,5 +4,5 @@ resource "aws_subnet" "subnets" {
   cidr_block        = each.value.cidr
   availability_zone = each.value.az
   tags              = each.value.tags
-  map_public_ip_on_launch = "true"
+  map_public_ip_on_launch = each.value.public_ip
 }

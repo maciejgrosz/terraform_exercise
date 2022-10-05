@@ -26,5 +26,6 @@ variable "subnets" {
     cidr = string
     az   = string
     tags = map(any)
+    public_ip = bool
   }))
 }
