@@ -10,13 +10,8 @@ module "alb" {
   subnets         = ["${aws_subnet.subnets["a"].id}", "${aws_subnet.subnets["b"].id}"]
   security_groups = ["${aws_security_group.mg_security_group_tf.id}"]
 
-  #   access_logs = {
-  #     bucket = "my-alb-logs"
-  #   }
-
   target_groups = [
     {
-      #   name_prefix      = "pref-"
       backend_protocol = "HTTP"
       backend_port     = 80
       target_type      = "instance"
@@ -33,15 +28,6 @@ module "alb" {
     }
   ]
 
-  #   https_listeners = [
-  #     {
-  #       port               = 443
-  #       protocol           = "HTTPS"
-  #       certificate_arn    = "arn:aws:iam::123456789012:server-certificate/test_cert-123456789012"
-  #       target_group_index = 0
-  #     }
-  #   ]
-
   http_tcp_listeners = [
     {
       port               = 80
@@ -49,8 +35,4 @@ module "alb" {
       target_group_index = 0
     }
   ]
-
-  tags = {
-    Environment = "Test"
-  }
 }

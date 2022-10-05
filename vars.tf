@@ -29,3 +29,14 @@ variable "subnets" {
     public_ip = bool
   }))
 }
+
+# variable "alb" {
+#     type = map
+
+#     default= {
+#         source="terraform-aws-modules/alb/aws"
+#         version= "~> 6.0"
+#         alb_name = "maciejgroszyk-alb"
+#         load_balancer_type = "application"
+#     }
+# }
