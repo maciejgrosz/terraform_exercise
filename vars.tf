@@ -27,7 +27,7 @@ variable "internet_gateway_tags" {
 
 variable "security_group" {
     type = map(object({
-        cidr_blocks = list(string)
+        ip_0 = string
         protocol_tcp = string
         ingress_port1 = number
         ingress_port2 = number
@@ -37,7 +37,7 @@ variable "security_group" {
         tags = map(any)
     }))
     default = {
-        cidr_blocks = ["0.0.0.0/0"]
+        ip_0 = "0.0.0.0/0"
         protocol_tcp = "tcp" 
         ingress_port1 = 22
         ingress_port2 = 80

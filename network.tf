@@ -31,25 +31,25 @@ resource "aws_security_group" "mg_security_group_tf" {
     from_port   = var.security_group["egress_port1"]
     to_port     = var.security_group["egress_port1"]
     protocol    = var.security_group["egress_protocol"]
-    cidr_blocks = var.security_group["cidr_blocks"]
+    cidr_blocks = [var.security_group["ip_0 "]]
   }
   ingress {
     from_port   = var.security_group["ingress_port1"]
     to_port     = var.security_group["ingress_port1"]
     protocol    = var.security_group["protocol_tcp"]
-    cidr_blocks = var.security_group["cidr_blocks"]
+    cidr_blocks = [var.security_group["ip_0 "]]
   }
   ingress {
     from_port   = var.security_group["ingress_port2"]
     to_port     = var.security_group["ingress_port2"]
     protocol    = var.security_group["protocol_tcp"]
-    cidr_blocks = var.security_group["cidr_blocks"]
+    cidr_blocks = [var.security_group["ip_0 "]]
   }
   ingress {
     from_port   = var.security_group["ingress_port3"]
     to_port     = var.security_group["ingress_port3"]
     protocol    = var.security_group["protocol_tcp"]
-    cidr_blocks = var.security_group["cidr_blocks"]
+    cidr_blocks = [var.security_group["ip_0 "]]
   }
   tags = var.security_group["tags"]
 }
