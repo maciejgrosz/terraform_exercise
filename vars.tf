@@ -14,7 +14,7 @@ variable "aws_instances" {
   type = map(object({
     ami           = string
     instance_type = string
-    tags          = map
+    tags          = map(any)
     key_name      = string
   }))
   description = "AWS instances"
