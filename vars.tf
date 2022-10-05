@@ -21,10 +21,10 @@ variable "aws_instances" {
   description = "AWS instances"
 }
 
-# variable "subnets" {
-#   type = map(object({
-#     cidr = string
-#     az   = string
-#     name = string
-#   }))
-# }
+variable "subnets" {
+  type = map(object({
+    cidr = string
+    az   = string
+    tags = map(any)
+  }))
+}
