@@ -26,9 +26,7 @@ resource "aws_route_table_association" "mg_crta_public_subnet_b" {
 
 resource "aws_security_group" "mg_security_group_tf" {
   vpc_id = aws_vpc.maciejgroszyk_tf_vpc.id
-  tags = {
-    Name = var.security_group["tag_name"]
-  }
+  tags = var.security_group_tag
   #   egress {
   #     from_port   = var.security_group["egress_port1"]
   #     to_port     = var.security_group["egress_port1"]

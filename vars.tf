@@ -56,6 +56,13 @@ variable "rules" {
   }
 }
 
+variable "security_group_tag" {
+    type = map(any)
+    default = {
+        Name = "mg_security_group_tf"
+    }
+}
+
 # variable "security_group" {
 #     type = object({
 #         ip_0 = string
