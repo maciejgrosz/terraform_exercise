@@ -1,13 +1,13 @@
-variable "AWS_REGION" {    
-    default = "eu-west-2"
+variable "AWS_REGION" {
+  default = "eu-west-2"
 }
 
 variable "volume_tags" {
-    type = map
-    default = {
-        created_by = "Maciej Groszyk"
-        bootcamp = "poland1"
-    }
+  type = map(any)
+  default = {
+    created_by = "Maciej Groszyk"
+    bootcamp   = "poland1"
+  }
 }
 
 # variable "aws_instances" {
@@ -19,3 +19,11 @@ variable "volume_tags" {
 #     }))
 #  description = "AWS instances"
 # }
+
+variable "subnets" {
+  type = map(object({
+    cidr = string
+    az   = string
+    name = string
+  }))
+}
