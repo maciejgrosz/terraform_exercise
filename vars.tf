@@ -42,11 +42,12 @@ variable "egress_rules" {
   default = ["0"]
 }
 variable "rules" {
-  type = map(list(object({
-    from_port = number,
-    to_port   = number,
-    protocol  = string,
-  })))
+    type = any
+#   type = map(list(object({
+#     from_port = number,
+#     to_port   = number,
+#     protocol  = string,
+#   })))
   default = {
     "22"   = [22, 22, "tcp"]
     "80"   = [80, 80, "tcp"]
