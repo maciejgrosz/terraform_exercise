@@ -3,7 +3,7 @@ variable "AWS_REGION" {
 }
 
 variable "volume_tags" {
-    type = "map"
+    type = map
     default = {
         created_by = "Maciej Groszyk"
         bootcamp = "poland1"
