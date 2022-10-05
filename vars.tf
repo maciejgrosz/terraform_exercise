@@ -29,8 +29,8 @@ variable "ingress_cidr_blocks" {
   default = ["0.0.0.0/0"]
 }
 variable "ingress_rules" {
-  type    = list(number)
-  default = [22, 80, 8080]
+  type    = list(string)
+  default = ["22", "80", "8080"]
 }
 variable "egress_cidr_blocks" {
   type    = list(string)
@@ -38,20 +38,20 @@ variable "egress_cidr_blocks" {
 }
 
 variable "egress_rules" {
-  type    = list(number)
-  default = [0]
+  type    = list(string)
+  default = ["0"]
 }
 variable "rules" {
   type = map(list(object({
-    from_port = number
-    to_port   = number
-    protocol  = string
+    from_port = number,
+    to_port   = number,
+    protocol  = string,
   })))
   default = {
-    22   = [22, 22, "tcp"]
-    80   = [80, 80, "tcp"]
-    8080 = [8080, 8080, "tcp"]
-    0    = [0, 0, "all"]
+    "22"   = [22, 22, "tcp"]
+    "80"   = [80, 80, "tcp"]
+    "8080" = [8080, 8080, "tcp"]
+    "0"    = [0, 0, "all"]
   }
 }
 
