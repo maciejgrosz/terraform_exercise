@@ -1,3 +1,8 @@
+locals {
+    subnets_ids =["${aws_subnet.subnets["a"].id}", "${aws_subnet.subnets["b"].id}"]
+    security_group_ids = ["${aws_security_group.mg_security_group_tf.id}"]
+}
+
 variable "AWS_REGION" {
   default = "eu-west-2"
 }
@@ -82,5 +87,6 @@ variable "subnets" {
     public_ip = bool
   }))
 }
+
 
 

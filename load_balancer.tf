@@ -1,14 +1,13 @@
 module "alb" {
   source  = "terraform-aws-modules/alb/aws"
   version = "~> 6.0"
-
   name = "maciejgroszyk-alb"
 
   load_balancer_type = "application"
 
   vpc_id          = aws_vpc.maciejgroszyk_tf_vpc.id
-  subnets         = ["${aws_subnet.subnets["a"].id}", "${aws_subnet.subnets["b"].id}"]
-  security_groups = ["${aws_security_group.mg_security_group_tf.id}"]
+  subnets         = local.subnets_ids
+  security_groups = local.security_group_ids
 
   target_groups = [
     {

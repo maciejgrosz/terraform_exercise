@@ -20,11 +20,6 @@ resource "aws_route_table_association" "mg_crta_public_subnet" {
   route_table_id = aws_route_table.maciejgroszyk_tf_crt.id
 }
 
-# resource "aws_route_table_association" "mg_crta_public_subnet_b" {
-#   subnet_id      = aws_subnet.subnets["b"].id
-#   route_table_id = aws_route_table.maciejgroszyk_tf_crt.id
-# }
-
 resource "aws_security_group" "mg_security_group_tf" {
   vpc_id = aws_vpc.maciejgroszyk_tf_vpc.id
   tags = var.security_group_tag
