@@ -4,7 +4,7 @@ resource "aws_instance" "maciejgroszyk_tf_ec2" {
   instance_type          = each.value.instance_type
   subnet_id              = aws_subnet.maciejgroszyk_tf-public-subnet-1.id
   tags                   = each.value.tags
-  user_data              = each.value.user_data
+  user_data              = file(each.value.start_script)
   volume_tags            = var.volume_tags
   vpc_security_group_ids = [aws_security_group.mg_security_group_tf.id]
   key_name               = each.value.key_name
