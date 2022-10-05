@@ -7,7 +7,7 @@ module "alb" {
   load_balancer_type = "application"
 
   vpc_id          = aws_vpc.maciejgroszyk_tf_vpc.id
-  subnets         = ["${aws_subnet.maciejgroszyk_tf-public-subnet-1.id}", "${aws_subnet.maciejgroszyk_tf-public-subnet-2.id}"]
+  subnets         = ["${aws_subnet.subnets["a"].id}", "${aws_subnet.subnets["b"].id}"]
   security_groups = ["${aws_security_group.mg_security_group_tf.id}"]
 
   #   access_logs = {
