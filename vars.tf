@@ -34,7 +34,7 @@ variable "security_group" {
         ingress_port3 = number
         egress_port1 = number
         egress_protocol = number
-        tags = map(any)
+        name = string
     }))
     default = {
         ip_0 = "0.0.0.0/0"
@@ -44,9 +44,8 @@ variable "security_group" {
         ingress_port3 = 8080
         egress_port1 = 0
         egress_protocol = -1
-        tags = {
-            Name = "mg_security_group_tf"
-        }
+        name = "mg_security_group_tf"
+    
     }
 }   
 
