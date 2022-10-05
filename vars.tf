@@ -26,7 +26,7 @@ variable "internet_gateway_tags" {
 }
 
 variable "security_group" {
-    type = map(object({
+    type = object({
         ip_0 = string
         protocol_tcp = string
         ingress_port1 = number
@@ -35,7 +35,7 @@ variable "security_group" {
         egress_port1 = number
         egress_protocol = number
         tag_name = string
-    }))
+    })
     default = {
         ip_0 = "0.0.0.0/0"
         protocol_tcp = "tcp" 
