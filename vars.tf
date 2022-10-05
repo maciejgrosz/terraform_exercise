@@ -25,6 +25,22 @@ variable "internet_gateway_tags" {
     }
 }
 
+variable "security_group" {
+    type = map(any)
+    default = {
+        cidr_blocks = ["0.0.0.0/0"]
+        protocol_tcp = "tcp" 
+        ingress_port1 = 22
+        ingress_port2 = 80
+        ingress_port3 = 8080
+        egress_port1 = 0
+        egress_protocol = -1
+        tags = {
+            Name = "mg_security_group_tf"
+        }
+    }
+}   
+
 variable "aws_instances" {
   type = map(object({
     ami           = string
@@ -45,6 +61,13 @@ variable "subnets" {
   }))
 }
 
+variable "backend" {
+    type = map(object({
+        bucket = "mg-state"
+        key = "mg-state"
+        region = "eu-west-2"
+    }))
+}
 # variable "alb" {
 #     type = map
 

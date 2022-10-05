@@ -28,30 +28,28 @@ resource "aws_security_group" "mg_security_group_tf" {
   vpc_id = aws_vpc.maciejgroszyk_tf_vpc.id
 
   egress {
-    from_port   = 0
-    to_port     = 0
-    protocol    = -1
-    cidr_blocks = ["0.0.0.0/0"]
+    from_port   = var.security_group["egress_port1"]
+    to_port     = var.security_group["egress_port1"]
+    protocol    = var.security_group["egress_protocol"]
+    cidr_blocks = var.security_group["cidr_blocks"]
   }
   ingress {
-    from_port   = 22
-    to_port     = 22
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
+    from_port   = var.security_group["ingress_port1"]
+    to_port     = var.security_group["ingress_port1"]
+    protocol    = var.security_group["protocol_tcp"]
+    cidr_blocks = var.security_group["cidr_blocks"]
   }
   ingress {
-    from_port   = 80
-    to_port     = 80
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
+    from_port   = var.security_group["ingress_port2"]
+    to_port     = var.security_group["ingress_port2"]
+    protocol    = var.security_group["protocol_tcp"]
+    cidr_blocks = var.security_group["cidr_blocks"]
   }
   ingress {
-    from_port   = 8080
-    to_port     = 8080
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
+    from_port   = var.security_group["ingress_port3"]
+    to_port     = var.security_group["ingress_port3"]
+    protocol    = var.security_group["protocol_tcp"]
+    cidr_blocks = var.security_group["cidr_blocks"]
   }
-  tags = {
-    Name = "mg_security_group_tf"
-  }
+  tags = var.security_group["tags"]
 }
