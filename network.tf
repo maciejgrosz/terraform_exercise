@@ -17,11 +17,11 @@ resource "aws_route_table" "maciejgroszyk_tf_crt" {
 }
 
 resource "aws_route_table_association" "mg_crta_public_subnet" {
-  for_each = ["${aws_subnet.subnets["a"].id}", "${aws_subnet.subnets["b"].id}"]
-  subnet_id      = each.value
+  for_each = toset(["${aws_subnet.subnets["a"].id}", "${aws_subnet.subnets["b"].id}"])
+  subnet_id      = each.key
   route_table_id = aws_route_table.maciejgroszyk_tf_crt.id
 }
-    
+
 resource "aws_security_group" "mg_security_group_tf" {
   vpc_id = aws_vpc.maciejgroszyk_tf_vpc.id
 
