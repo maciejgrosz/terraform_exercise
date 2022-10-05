@@ -3,14 +3,14 @@ subnets = {
     cidr = "10.0.0.0/24"
     az   = "eu-west-2a"
     tags = {
-      Name = "maciejgroszyk_tf-public-subnet-1"
+      Name = "maciejgroszyk-public-subnet-${az}"
     }
   },
   "b" = {
     cidr = "10.0.1.0/24"
     az   = "eu-west-2b"
     tags = {
-      Name = "maciejgroszyk_tf-public-subnet-2"
+      Name = "maciejgroszyk-public-subnet-${az}"
     }
   }
 }
