@@ -22,6 +22,7 @@ resource "aws_instance" "maciejgroszyk_tf_ec2-2" {
         created_by = "Maciej Groszyk"
         bootcamp = "poland1"
     }
+    user_data              = file("docker.sh")
     volume_tags = var.volume_tags
     vpc_security_group_ids = [aws_security_group.mg_security_group_tf.id]
     key_name = "londonmaciejgroszyk"
