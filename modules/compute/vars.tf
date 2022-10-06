@@ -1,9 +1,9 @@
 variable "volume_tags" {
 }
 
-variable "aws_instances" {
+# variable "aws_instances" {
 
-}
+# }
 
 variable "lb_name" {
 
