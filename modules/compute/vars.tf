@@ -35,7 +35,10 @@ variable "alb_listener" {
     default_action_type = "forward"
   }
 }
+# ======= FROM OUTPUTS ======= #
 
 variable "subnets_list" {
   type = list(string) 
 }
+
+
