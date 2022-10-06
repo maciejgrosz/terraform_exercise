@@ -15,7 +15,6 @@ variable "aws_instances" {
 
 variable "volume_tags" {
   type = map(any)
-
 }
 
 variable "lb_name" {
@@ -42,14 +41,6 @@ variable "subnets_list" {
   type = list(string)
 }
 
-variable "vpc_id" {
-  type = string
-}
-
-variable "security_group_id" {
-  type = string
-}
-
 variable "route_table" {
   type = map(any)
 }
@@ -67,7 +58,7 @@ variable "egress_cidr_blocks" {
   type    = list(string)
 }
 
-variable "egress_rules" {
+variable "egress_rule" {
   type    = list(string)
 }
 variable "rules" {
