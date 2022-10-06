@@ -35,6 +35,21 @@ variable "alb_listener" {
     default_action_type = "forward"
   }
 }
+
+variable "mg_target_group" {
+  type = any
+  default = {
+    name     = "maciejgroszyk-tg-alb"
+    port     = 80
+    protocol = "HTTP"
+  }
+}
+
+variable "attach_port" {
+  type    = number
+  default = 8080
+}
+
 # ======= FROM OUTPUTS ======= #
 
 variable "subnets_list" {

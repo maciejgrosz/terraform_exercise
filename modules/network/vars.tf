@@ -59,20 +59,6 @@ variable "subnets" {
   }))
 }
 
-variable "mg_target_group" {
-  type = any
-  default = {
-    name     = "maciejgroszyk-tg-alb"
-    port     = 80
-    protocol = "HTTP"
-  }
-}
-
-variable "attach_port" {
-  type    = number
-  default = 8080
-}
-
 variable "tf_vpc" {
   type = any
   default = {
