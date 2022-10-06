@@ -3,18 +3,6 @@ locals {
   security_group_ids = ["${aws_security_group.mg_security_group_tf.id}"]
 }
 
-variable "AWS_REGION" {
-  default = "eu-west-2"
-}
-
-variable "volume_tags" {
-  type = map(any)
-  default = {
-    created_by = "Maciej Groszyk"
-    bootcamp   = "poland1"
-  }
-}
-
 variable "route_table" {
   type = map(any)
   default = {
@@ -67,18 +55,6 @@ variable "security_group_tag" {
     Name = "mg_security_group_tf"
   }
 }
-
-variable "aws_instances" {
-  type = map(object({
-    ami           = string
-    instance_type = string
-    start_script  = string
-    tags          = map(any)
-    key_name      = string
-  }))
-  description = "AWS instances"
-}
-
 variable "subnets" {
   type = map(object({
     cidr      = string

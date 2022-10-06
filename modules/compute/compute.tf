@@ -9,3 +9,5 @@ resource "aws_instance" "maciejgroszyk_tf_ec2" {
   vpc_security_group_ids = [aws_security_group.mg_security_group_tf.id]
   key_name               = each.value.key_name
 }
+
+ 

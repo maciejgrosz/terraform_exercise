@@ -36,3 +36,5 @@ resource "aws_lb_target_group_attachment" "mg-attach" {
   target_id        = aws_instance.maciejgroszyk_tf_ec2[each.key].id
   port             = var.attach_port
 }
+
+
