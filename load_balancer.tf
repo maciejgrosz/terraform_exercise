@@ -1,76 +1,38 @@
-# module "alb" {
-#   source  = "terraform-aws-modules/alb/aws"
-#   version = "~> 6.0"
-#   name = "maciejgroszyk-alb"
-
-#   load_balancer_type = "application"
-
-#   vpc_id          = aws_vpc.maciejgroszyk_tf_vpc.id
-#   subnets         = local.subnets_ids
-#   security_groups = local.security_group_ids
-
-#   target_groups = [
-#     {
-#       backend_protocol = "HTTP"
-#       backend_port     = 80
-#       target_type      = "instance"
-#       targets = {
-#         my_target = {
-#           target_id = "${aws_instance.maciejgroszyk_tf_ec2["a"].id}"
-#           port      = 8080
-#         }
-#         my_other_target = {
-#           target_id = "${aws_instance.maciejgroszyk_tf_ec2["b"].id}"
-#           port      = 8080
-#         }
-#       }
-#     }
-#   ]
-
-#   http_tcp_listeners = [
-#     {
-#       port               = 80
-#       protocol           = "HTTP"
-#       target_group_index = 0
-#     }
-#   ]
-# }
-
 resource "aws_lb" "alb" {
-  name               = "main-app-lb"
-  load_balancer_type = "application"
+  name               = var.lb_name
+  load_balancer_type = var.lb_type
   subnets            = local.subnets_ids
   security_groups    = local.security_group_ids
 }
 
 resource "aws_lb_listener" "alb" {
   load_balancer_arn = aws_lb.alb.arn
-  port              = "80"
-  protocol          = "HTTP"
-  
+  port              = var.alb_listener[port]
+  protocol          = var.alb_listener[protocol]
+
   default_action {
-    type             = "forward"
+    type             = var.alb_listener[default_action_type]
     target_group_arn = aws_lb_target_group.mg-tf-target_group.arn
   }
 }
 
 resource "aws_lb_target_group" "mg-tf-target_group" {
-  name     = "maciejgroszyk-tg-alb"
-  port     = 80
-  protocol = "HTTP"
+  name     = var.mg_target_group[name]
+  port     = var.mg_target_group[port]
+  protocol = var.mg_target_group[protocol]
   vpc_id   = aws_vpc.maciejgroszyk_tf_vpc.id
 
   health_check {
-    port     = 80
-    protocol = "HTTP"
+    port     = var.mg_target_group[port]
+    protocol = var.mg_target_group[protocol]
     timeout  = 5
     interval = 10
   }
 }
 
-resource "aws_lb_target_group_attachment" "blue" {
+resource "aws_lb_target_group_attachment" "mg-attach" {
   for_each         = var.aws_instances
   target_group_arn = aws_lb_target_group.mg-tf-target_group.arn
   target_id        = aws_instance.maciejgroszyk_tf_ec2[each.key].id
-  port             = 8080
+  port             = var.attach_port
 }

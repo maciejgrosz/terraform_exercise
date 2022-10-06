@@ -88,5 +88,48 @@ variable "subnets" {
   }))
 }
 
+variable "lb_name" {
+  type    = string
+  default = "maciejgroszyk-tf-alb"
+}
 
+variable "lb_type" {
+  type    = string
+  default = "application"
+}
 
+variable "alb_listener" {
+  type = map(string)
+  default = {
+    port                = "80"
+    protocol            = "HTTP"
+    default_action_type = "forward"
+  }
+}
+
+variable "mg_target_group" {
+  type = any
+  default = {
+    name     = "maciejgroszyk-tg-alb"
+    port     = 80
+    protocol = "HTTP"
+  }
+}
+
+variable "attach_port" {
+  type    = number
+  default = 8080
+}
+
+variable "tf_vpc" {
+  type = any
+  default = {
+    cidr_block           = "10.0.0.0/16"
+    enable_dns_support   = "true"
+    enable_dns_hostnames = "true"
+    instance_tenancy     = "default"
+    tags = {
+      Name = "maciejgroszyk_tf_vpc"
+    }
+  }
+}
