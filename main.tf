@@ -8,6 +8,12 @@ module "compute" {
   subnets_list      = module.network.subnets_list
   vpc_id            = module.network.vpc_id
   security_group_id = module.network.security_group_id
+  lb_name = var.lb_name
+  lb_type = var.lb_type
+  mg_target_group = var.mg_target_group
+  attach_port = var.attach_port
+  volume_tags = var.volume_tags
+  alb_listener = var.alb_listener
 }
 
 module "network" {
