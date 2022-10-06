@@ -31,9 +31,9 @@ resource "aws_lb_target_group" "mg-tf-target_group" {
 }
 
 resource "aws_lb_target_group_attachment" "mg-attach" {
-  for_each         = var.aws_instances
+  for_each         = length(aws_instance.maciejgroszyk_tf_ec2)
   target_group_arn = aws_lb_target_group.mg-tf-target_group.arn
-  target_id        = aws_instance.maciejgroszyk_tf_ec2[each.key].id
+  target_id        = aws_instance.maciejgroszyk_tf_ec2[count.index].id
   port             = var.attach_port
 }
 
