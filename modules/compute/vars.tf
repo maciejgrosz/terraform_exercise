@@ -35,3 +35,7 @@ variable "alb_listener" {
     default_action_type = "forward"
   }
 }
+
+variable "subnets_list" {
+  type = list(string) 
+}
