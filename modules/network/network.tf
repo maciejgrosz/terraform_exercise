@@ -14,9 +14,15 @@ resource "aws_route_table" "maciejgroszyk_tf_crt" {
   }
 }
 
+# resource "aws_route_table_association" "mg_crta_public_subnet" {
+#   for_each       = var.subnets
+#   subnet_id      = aws_subnet.subnets[each.key].id
+#   route_table_id = aws_route_table.maciejgroszyk_tf_crt.id
+# }
+
 resource "aws_route_table_association" "mg_crta_public_subnet" {
-  for_each       = var.subnets
-  subnet_id      = aws_subnet.subnets[each.key].id
+  count = length(aws_subnet.subnets)
+  subnet_id      = aws_subnet.subnets[count.index].id
   route_table_id = aws_route_table.maciejgroszyk_tf_crt.id
 }
 
