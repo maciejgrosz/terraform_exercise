@@ -13,29 +13,9 @@ variable "aws_instances" {
   description = "AWS instances"
 }
 
-variable "subnets" {
-  type = map(object({
-    cidr      = string
-    az        = string
-    tags      = map(any)
-    public_ip = bool
-  }))
-}
-
 variable "volume_tags" {
   type = map(any)
 
-}
-
-variable "aws_instances" {
-  type = map(object({
-    ami           = string
-    instance_type = string
-    start_script  = string
-    tags          = map(any)
-    key_name      = string
-  }))
-  description = "AWS instances"
 }
 
 variable "lb_name" {
