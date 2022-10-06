@@ -3,6 +3,7 @@
 
 module "compute" {
     source = "./modules/compute"
+    aws_instances = var.aws_instances
 }
 
 module "network" {

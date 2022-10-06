@@ -1,7 +1,3 @@
-variable "AWS_REGION" {
-  default = "eu-west-2"
-}
-
 variable "volume_tags" {
   type = map(any)
   default = {
