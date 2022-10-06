@@ -17,3 +17,21 @@ variable "aws_instances" {
   description = "AWS instances"
 }
 
+variable "lb_name" {
+  type    = string
+  default = "maciejgroszyk-tf-alb"
+}
+
+variable "lb_type" {
+  type    = string
+  default = "application"
+}
+
+variable "alb_listener" {
+  type = map(string)
+  default = {
+    port                = "80"
+    protocol            = "HTTP"
+    default_action_type = "forward"
+  }
+}

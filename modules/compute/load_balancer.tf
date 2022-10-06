@@ -20,7 +20,7 @@ resource "aws_lb_target_group" "mg-tf-target_group" {
   name     = var.mg_target_group["name"]
   port     = var.mg_target_group["port"]
   protocol = var.mg_target_group["protocol"]
-  vpc_id   = aws_vpc.maciejgroszyk_tf_vpc.id
+  vpc_id   = module.network.vpc_id
 
   health_check {
     port     = var.mg_target_group["port"]
