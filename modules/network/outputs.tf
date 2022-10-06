@@ -1,6 +1,6 @@
 output "subnets_list" {
     description = "List of subnets"
-    value = [aws_subnet.subnets["a"].id, aws_subnet.subnets["b"].id]
+    value = "${aws_subnet.subnets.*.id}"
 }
 
 output "vpc_id" {
