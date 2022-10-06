@@ -91,6 +91,6 @@ variable "health_check_interval" {
 }
 
 variable "aws_instance_config" {
-  type = map(any)
+  type = any
   description = "AWS instances"
   }
