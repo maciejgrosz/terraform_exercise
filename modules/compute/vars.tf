@@ -42,6 +42,6 @@ variable "health_check_interval"{
 
 }
 
-variable "aws_instance"{
-  
+variable "aws_instance_config"{
+
 }
