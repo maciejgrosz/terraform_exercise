@@ -59,12 +59,7 @@ variable "security_group_tag" {
   type = map(any)
 }
 variable "subnets" {
-  type = map(object({
-    cidr      = string
-    az        = string
-    tags      = map(any)
-    public_ip = bool
-  }))
+  type = any
 }
 
 variable "tf_vpc" {
