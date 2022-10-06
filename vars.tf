@@ -2,16 +2,16 @@ variable "AWS_REGION" {
   default = "eu-west-2"
 }
 
-variable "aws_instances" {
-  type = map(object({
-    ami           = string
-    instance_type = string
-    start_script  = string
-    tags          = map(any)
-    key_name      = string
-  }))
-  description = "AWS instances"
-}
+# variable "aws_instances" {
+#   type = map(object({
+#     ami           = string
+#     instance_type = string
+#     start_script  = string
+#     tags          = map(any)
+#     key_name      = string
+#   }))
+#   description = "AWS instances"
+# }
 
 variable "volume_tags" {
   type = map(any)
@@ -91,5 +91,12 @@ variable "health_check_interval" {
 }
 
 variable "aws_instance_config" {
-    type = any
-}
+  type = map(object({
+    ami           = string
+    instance_type = string
+    start_script  = string
+    tags          = map(any)
+    key_name      = string
+  }))
+  description = "AWS instances"
+  }
