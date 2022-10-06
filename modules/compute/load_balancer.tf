@@ -2,7 +2,7 @@ resource "aws_lb" "alb" {
   name               = var.lb_name
   load_balancer_type = var.lb_type
   subnets            = var.subnets_list
-  security_groups    = local.security_group_ids
+  security_groups    = [var.security_group_id]
 }
 
 resource "aws_lb_listener" "alb" {
