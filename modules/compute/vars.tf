@@ -39,5 +39,9 @@ variable "health_check_timeout"{
 }
 
 variable "health_check_interval"{
+
+}
+
+variable "aws_instance"{
   
 }
