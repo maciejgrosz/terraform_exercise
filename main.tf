@@ -5,7 +5,7 @@ module "compute" {
   source        = "./modules/compute"
   aws_instances = var.aws_instances
 
-  subnets_list      = [module.network.subnet_a_id, module.network.subnet_b_id]
+  subnets_list      = module.network.subnets_list
   vpc_id            = module.network.vpc_id
   security_group_id = module.network.security_group_id
 }

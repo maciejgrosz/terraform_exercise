@@ -86,6 +86,6 @@ variable "tf_vpc" {
   type = any
 }
 
-variable "subnet_list" {
+variable "subnets_list" {
     type = list(string)
 }
