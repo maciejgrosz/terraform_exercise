@@ -1,7 +1,7 @@
 resource "aws_lb" "alb" {
   name               = var.lb_name
   load_balancer_type = var.lb_type
-  subnets            = local.subnets_ids
+  subnets            = [module.network.subnet_a_id, module.network.subnet_b_id]
   security_groups    = local.security_group_ids
 }
 
