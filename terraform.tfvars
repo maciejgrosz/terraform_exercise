@@ -102,5 +102,5 @@ tf_vpc = {
   }
 }
 
-health_check_interval = 5
-health_check_timeout  = 10
+health_check_interval = 10
+health_check_timeout  = 5
