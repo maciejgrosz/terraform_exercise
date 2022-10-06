@@ -7,6 +7,7 @@ module "compute" {
 
     subnets_list = [module.network.subnet_a_id, module.network.subnet_b_id]
     vpc_id = module.network.vpc_id
+    security_group_id = module.network.security_group_id
 }
 
 module "network" {
