@@ -37,10 +37,6 @@ variable "attach_port" {
   type = number
 }
 
-variable "subnets_list" {
-  type = list(string)
-}
-
 variable "route_table" {
   type = map(any)
 }

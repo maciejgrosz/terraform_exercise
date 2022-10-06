@@ -25,6 +25,7 @@ variable "attach_port" {
 }
 
 variable "subnets_list" {
+  type=list(string)
 }
 
 variable "vpc_id" {
