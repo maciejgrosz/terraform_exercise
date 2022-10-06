@@ -31,3 +31,7 @@ variable "subnets" {
 variable "tf_vpc" {
 
 }
+
+variable "single_config" {
+    
+}

@@ -20,6 +20,7 @@ module "compute" {
 
 module "network" {
   source                = "./modules/network"
+  single_config         = var.single_config
   subnets               = var.subnets
   tf_vpc                = var.tf_vpc
   route_table           = var.route_table
