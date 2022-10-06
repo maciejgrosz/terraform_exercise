@@ -91,12 +91,6 @@ variable "health_check_interval" {
 }
 
 variable "aws_instance_config" {
-  type = map(object({
-    ami           = string
-    instance_type = string
-    start_script  = string
-    tags          = map(any)
-    key_name      = string
-  }))
+  type = map(any)
   description = "AWS instances"
   }
