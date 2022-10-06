@@ -11,5 +11,6 @@ module "compute" {
 
 module "network" {
     source = "./modules/network"
+    subnets = var.subnets
 
 }
