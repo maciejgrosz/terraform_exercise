@@ -90,6 +90,6 @@ variable "health_check_interval" {
   type = number
 }
 
-variable "aws_instance" {
+variable "aws_instance_config" {
     type = any
 }
