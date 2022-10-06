@@ -3,7 +3,7 @@
 
 module "compute" {
   source        = "./modules/compute"
-#   aws_instances = var.aws_instances
+  single_config = var.single_config
   aws_instance_config = var.aws_instance_config
   subnets_list          = module.network.subnets_list
   vpc_id                = module.network.vpc_id

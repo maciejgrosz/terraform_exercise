@@ -1,10 +1,6 @@
 variable "volume_tags" {
 }
 
-# variable "aws_instances" {
-
-# }
-
 variable "lb_name" {
 
 }
@@ -44,4 +40,8 @@ variable "health_check_interval"{
 
 variable "aws_instance_config"{
 
+}
+
+variable "single_config" {
+  
 }

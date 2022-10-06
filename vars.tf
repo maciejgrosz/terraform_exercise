@@ -2,17 +2,6 @@ variable "AWS_REGION" {
   default = "eu-west-2"
 }
 
-# variable "aws_instances" {
-#   type = map(object({
-#     ami           = string
-#     instance_type = string
-#     start_script  = string
-#     tags          = map(any)
-#     key_name      = string
-#   }))
-#   description = "AWS instances"
-# }
-
 variable "volume_tags" {
   type = map(any)
 }
@@ -94,3 +83,7 @@ variable "aws_instance_config" {
   type = any
   description = "AWS instances"
   }
+
+variable "single_config" {
+    type = bool
+}
