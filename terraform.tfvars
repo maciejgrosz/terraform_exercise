@@ -70,8 +70,8 @@ route_table = {
 }
 
 internet_gateway_tags = {
-    Name = "maciejgroszyk_tf_igw"
-  }
+  Name = "maciejgroszyk_tf_igw"
+}
 
 ingress_cidr_blocks = ["0.0.0.0/0"]
 
@@ -82,22 +82,25 @@ egress_cidr_blocks = ["0.0.0.0/0"]
 egress_rule = ["0"]
 
 rules = {
-    "22"   = [22, 22, "tcp"]
-    "80"   = [80, 80, "tcp"]
-    "8080" = [8080, 8080, "tcp"]
-    "0"    = [0, 0, "all"]
-  }
+  "22"   = [22, 22, "tcp"]
+  "80"   = [80, 80, "tcp"]
+  "8080" = [8080, 8080, "tcp"]
+  "0"    = [0, 0, "all"]
+}
 
 security_group_tag = {
-    Name = "mg_security_group_tf"
-  }
+  Name = "mg_security_group_tf"
+}
 
 tf_vpc = {
-    cidr_block           = "10.0.0.0/16"
-    enable_dns_support   = "true"
-    enable_dns_hostnames = "true"
-    instance_tenancy     = "default"
-    tags = {
-      Name = "maciejgroszyk_tf_vpc"
-    }
+  cidr_block           = "10.0.0.0/16"
+  enable_dns_support   = "true"
+  enable_dns_hostnames = "true"
+  instance_tenancy     = "default"
+  tags = {
+    Name = "maciejgroszyk_tf_vpc"
   }
+}
+
+health_check_interval = 5
+health_check_timeout  = 10

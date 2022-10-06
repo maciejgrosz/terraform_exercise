@@ -45,17 +45,17 @@ variable "internet_gateway_tags" {
   type = map(any)
 }
 variable "ingress_cidr_blocks" {
-  type    = list(string)
+  type = list(string)
 }
 variable "ingress_rules" {
-  type    = list(string)
+  type = list(string)
 }
 variable "egress_cidr_blocks" {
-  type    = list(string)
+  type = list(string)
 }
 
 variable "egress_rule" {
-  type    = list(string)
+  type = list(string)
 }
 variable "rules" {
   type = any
@@ -80,4 +80,12 @@ variable "subnets" {
 
 variable "tf_vpc" {
   type = any
+}
+
+variable "health_check_timeout" {
+  type = number
+}
+
+variable "health_check_interval" {
+  type = number
 }

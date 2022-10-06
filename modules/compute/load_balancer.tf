@@ -25,8 +25,8 @@ resource "aws_lb_target_group" "mg-tf-target_group" {
   health_check {
     port     = var.mg_target_group["port"]
     protocol = var.mg_target_group["protocol"]
-    timeout  = 5
-    interval = 10
+    timeout  = var.health_check_timeout
+    interval = var.health_check_interval
   }
 }
 
