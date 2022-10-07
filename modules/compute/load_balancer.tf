@@ -18,7 +18,7 @@ resource "aws_lb_listener" "alb" {
   }
 }
 
-resource "aws_lb_target_group" "mg-tf-target_group" {\
+resource "aws_lb_target_group" "mg-tf-target_group" {
   count = var.single_config == false ? 1:0
   name     = var.mg_target_group["name"]
   port     = var.mg_target_group["port"]
