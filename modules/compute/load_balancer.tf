@@ -1,4 +1,5 @@
 resource "aws_lb" "alb" {
+  count = var.single_config == false ? 1:0
   name               = var.lb_name
   load_balancer_type = var.lb_type
   subnets            = var.subnets_list
@@ -6,6 +7,7 @@ resource "aws_lb" "alb" {
 }
 
 resource "aws_lb_listener" "alb" {
+  count = var.single_config == false ? 1:0
   load_balancer_arn = aws_lb.alb.arn
   port              = var.alb_listener["port"]
   protocol          = var.alb_listener["protocol"]
@@ -16,7 +18,8 @@ resource "aws_lb_listener" "alb" {
   }
 }
 
-resource "aws_lb_target_group" "mg-tf-target_group" {
+resource "aws_lb_target_group" "mg-tf-target_group" {\
+  count = var.single_config == false ? 1:0
   name     = var.mg_target_group["name"]
   port     = var.mg_target_group["port"]
   protocol = var.mg_target_group["protocol"]
@@ -31,7 +34,7 @@ resource "aws_lb_target_group" "mg-tf-target_group" {
 }
 
 resource "aws_lb_target_group_attachment" "mg-attach" {
-  count            = length(aws_instance.maciejgroszyk_tf_ec2)
+  count            = var.single_config == false ? length(aws_instance.maciejgroszyk_tf_ec2):0
   target_group_arn = aws_lb_target_group.mg-tf-target_group.arn
   target_id        = aws_instance.maciejgroszyk_tf_ec2[count.index].id
   port             = var.attach_port
