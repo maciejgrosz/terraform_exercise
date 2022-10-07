@@ -35,7 +35,7 @@ resource "aws_lb_target_group" "mg-tf-target_group" {
 
 resource "aws_lb_target_group_attachment" "mg-attach" {
   count            = var.single_config == false ? length(aws_instance.maciejgroszyk_tf_ec2):0
-  target_group_arn = aws_lb_target_group.mg-tf-target_group[count.index].arn
+  target_group_arn = aws_lb_target_group.mg-tf-target_group[0].arn
   target_id        = aws_instance.maciejgroszyk_tf_ec2[count.index].id
   port             = var.attach_port
 }
