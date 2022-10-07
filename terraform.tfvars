@@ -1,4 +1,4 @@
-single_config = false
+single_config = true
 
 aws_instance_config = {
     ami           = "ami-0f540e9f488cfa27d"
